@@ -1,15 +1,39 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
+
 
 
 Vue.use(VueRouter)
 
 const routes = [
   {
-    path: '/',
+    path: '',
     name: 'Home',
-    component: Home
+    component: () => import('../views/Home'),
+  },
+  {
+    path: '/login',
+    name: 'Login',
+    component: () => import('../views/auth/pages/Login'),
+    meta: {
+      requiresLogged: true
+    }
+  },
+  {
+    path: '/register',
+    name: 'Register',
+    component: () => import('../views/auth/pages/Register'),
+    meta: {
+      requiresLogged: true
+    }
+  },
+  {
+    path: '/logout',
+    name: 'logout',
+    component: () => import('../views/auth/pages/Logout'),
+    meta: {
+      requiresAuth: true
+    }
   },
   {
     path: '/about',
@@ -26,7 +50,7 @@ const routes = [
     children: [
       {
         path: '',
-        name: 'Home',
+        name: 'ContentHome',
         component: () => import('../views/content/pages/Home'),
       },
       {
