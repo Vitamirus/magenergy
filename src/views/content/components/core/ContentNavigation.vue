@@ -1,29 +1,23 @@
 <template>
     <v-navigation-drawer v-model="drawer" app clipped>
         <v-list expand nav>
-            <template v-for="item in items">
-                <router-link to={{ item.to }} tag="button">
-                    <v-list-item link>
-                        <v-list-item-action>
-                            <v-icon>{{ item.icon }}</v-icon>
-                        </v-list-item-action>
+            <v-list-item link>
+                <v-list-item-action>
+                    <v-icon>mdi-cog</v-icon>
+                </v-list-item-action>
+                <v-list-item-content>
+                    <v-list-item-title><router-link to="/content">Главная</router-link></v-list-item-title>
+                </v-list-item-content>
+            </v-list-item>
 
-                            <v-list-item-content>
-                                <v-list-item-title>{{ item.title }}</v-list-item-title>
-                            </v-list-item-content>
-
-                    </v-list-item>
-                </router-link>
-            </template>
-
-<!--            <v-list-item link>-->
-<!--                <v-list-item-action>-->
-<!--                    <v-icon>mdi-cog</v-icon>-->
-<!--                </v-list-item-action>-->
-<!--                <v-list-item-content>-->
-<!--                    <v-list-item-title><router-link to="/content/settings">Настройки</router-link></v-list-item-title>-->
-<!--                </v-list-item-content>-->
-<!--            </v-list-item>-->
+            <v-list-item link>
+                <v-list-item-action>
+                    <v-icon>mdi-cog</v-icon>
+                </v-list-item-action>
+                <v-list-item-content>
+                    <v-list-item-title><router-link to="/content/settings">Настройки</router-link></v-list-item-title>
+                </v-list-item-content>
+            </v-list-item>
         </v-list>
     </v-navigation-drawer>
 </template>
